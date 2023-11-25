@@ -19,7 +19,7 @@ const Imagenp = {
         });
           
         res.status(201).send(imagen._id);
-        
+
     } catch (err) {
       res.status(500).send(err.message);
     }
@@ -53,7 +53,7 @@ const Imagenp = {
   getImagenesPublic: async (req, res) => {
     const { id, publicId } = req.params;
     try {
-      const imagenes = await Imagenesp.find({publicacion: publicId})
+      const imagenes = await Imagenesp.find()//{publicacion: publicId}
 
       res.status(200).send(imagenes);
 
