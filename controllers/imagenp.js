@@ -33,7 +33,7 @@ const Imagenp = {
     try {
 
         //Se borra
-        await Imagenesp.deleteOne(id);
+        await Imagenesp.deleteOne({ _id: id });
 
         //Aqui encuentra el id de la publicación y actualiza la información en la tabla de publicacion
         await Publicaciones.findByIdAndUpdate(imagen.publicacion, {
