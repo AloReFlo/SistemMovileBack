@@ -5,6 +5,6 @@ const imagenp = require('../controllers/imagenp')
 
 router.post('/imagenp', imagenp.create);
 router.delete('/imagenp/:id', imagenp.delete);
-router.get('/imagenp/:id', imagenp.getImagenesPublic)
+router.get('/imagenp/', imagenp.getImagenesPublic)
 
 module.exports = router;
