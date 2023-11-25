@@ -26,18 +26,19 @@ const Imagenp = {
 
    //Borra la imagen
    delete: async (req, res) => {
+    const { id} = req.params;
     
-    const imagen = new Imagenesp(req.body);
+    const imagen = Imagenesp.findById(id)
 
     try {
 
         //Se borra
-        await Imagenesp.deleteOne(imagen._id);
+        await Imagenesp.deleteOne(id);
 
         //Aqui encuentra el id de la publicación y actualiza la información en la tabla de publicacion
         await Publicaciones.findByIdAndUpdate(imagen.publicacion, {
           //Aqui hace un pull quitando el id que le dimos imagen a public_imagenes(esta pertenece a la tabla de publicacion)
-          $pull: { public_imagenes: imagen._id },
+          $pull: { public_imagenes: id},
         });
 
         res.sendStatus(204);
