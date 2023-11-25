@@ -18,7 +18,8 @@ const Imagenp = {
           $push: { public_imagenes: imagen._id },
         });
           
-        res.sendStatus(201);
+        res.status(201).send(imagen._id);
+        
     } catch (err) {
       res.status(500).send(err.message);
     }
