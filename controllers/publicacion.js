@@ -29,6 +29,7 @@ const Publicacion = {
       return res.status(404).send('Publicación no encontrado');
     }
 
+    delete req.body.public_imagenes
     // Actualiza los campos de la publicacion con los valores del body
     Object.assign(publicacion, req.body);
 
